@@ -2,6 +2,7 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const fs = require("fs/promises");
 const path = require("path");
+const gravatar = require("gravatar");
 
 const { User } = require("../models/user");
 const { HttpError, ctrlWrapper } = require("../helpers");
