@@ -4,6 +4,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const authRouter = require("./routes/api/auth");
+const { swaggerUi, swaggerSpec } = require("./swaggerConfig");
 
 const app = express();
 
@@ -13,6 +14,8 @@ app.use(logger(formatsLogger));
 app.use(cors());
 app.use(express.json());
 app.use(express.static("public"));
+
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 app.use("/api/auth", authRouter);
 
